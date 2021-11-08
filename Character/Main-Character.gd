@@ -2,11 +2,12 @@ class_name MainCharacter
 
 extends KinematicBody2D
 
-const max_speed = 400;
+const max_speed = 200;
 var velocity = Vector2(0, 0);
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
+	print(velocity)
 	
 	if Input.is_action_pressed("ui_up"):
 		velocity.y = -max_speed;
