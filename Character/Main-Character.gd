@@ -7,29 +7,26 @@ var velocity = Vector2(0, 0);
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
-	print(velocity)
 	
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("up1"):
 		velocity.y = -max_speed;
 		velocity.x = 0;
 	
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("down1"):
 		velocity.y = max_speed;
 		velocity.x = 0;
 	
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("left1"):
 			velocity.x = -max_speed;
 			velocity.y = 0;
 		
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("right1"):
 		velocity.x = max_speed;
 		velocity.y = 0;
 	
 	else:
 		velocity = Vector2(0, 0);
-	
-	
-	
+
 	animation_handling()
 
 func animation_handling():
