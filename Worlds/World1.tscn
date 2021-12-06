@@ -12,16 +12,12 @@ extents = Vector2( 2010.75, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 1350 )
 
-[node name="World1" type="Node2D"]
+[node name="World1" type="YSort"]
 script = ExtResource( 2 )
 
 [node name="Main-Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 163.499, 118.481 )
-
-[node name="Bg" type="Sprite" parent="Main-Character"]
-position = Vector2( -167.499, -120.481 )
-z_index = -1
-texture = ExtResource( 5 )
+z_index = 1
 
 [node name="Camera" type="Camera2D" parent="Main-Character"]
 
@@ -50,3 +46,8 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -2002, 0 )
 shape = SubResource( 2 )
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( -4, -2 )
+z_index = -1
+texture = ExtResource( 5 )
