@@ -20,10 +20,17 @@ position = Vector2( 163.499, 118.481 )
 z_index = 1
 
 [node name="Camera" type="Camera2D" parent="Main-Character"]
+current = true
+
+[node name="Bg" type="Sprite" parent="Main-Character"]
+position = Vector2( -167.499, -120.481 )
+z_index = -80
+texture = ExtResource( 5 )
 
 [node name="FixMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
 format = 1
+tile_data = PoolIntArray( -458749, 1, 0, -393213, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 65532, 4, 0, 3, 0, 0, 131068, 2, 0, 65539, 3, 0, 196611, 2, 0 )
 
 [node name="RandomMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -46,8 +53,3 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -2002, 0 )
 shape = SubResource( 2 )
-
-[node name="Bg" type="Sprite" parent="."]
-position = Vector2( -4, -2 )
-z_index = -1
-texture = ExtResource( 5 )
