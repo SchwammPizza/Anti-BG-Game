@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Character/Main-Character.gd" type="Script" id=1]
+[ext_resource path="res://picture/Live/Life.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://picture/king.png" type="Texture" id=3]
+[ext_resource path="res://picture/Live/Shild.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -43,3 +45,38 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 25.5 )
 shape = SubResource( 3 )
+
+[node name="Life" type="Node2D" parent="."]
+position = Vector2( 0, -40 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Shild" type="Node2D" parent="Life"]
+position = Vector2( 0, -60 )
+
+[node name="Shild1" type="AnimatedSprite" parent="Life/Shild"]
+frames = ExtResource( 4 )
+animation = "1"
+offset = Vector2( -55, 0 )
+
+[node name="Shild2" type="AnimatedSprite" parent="Life/Shild"]
+frames = ExtResource( 4 )
+animation = "2"
+
+[node name="Shild3" type="AnimatedSprite" parent="Life/Shild"]
+frames = ExtResource( 4 )
+animation = "3"
+offset = Vector2( 55, 0 )
+
+[node name="Life1" type="AnimatedSprite" parent="Life"]
+position = Vector2( -55, 0 )
+frames = ExtResource( 2 )
+animation = "1"
+
+[node name="Life2" type="AnimatedSprite" parent="Life"]
+frames = ExtResource( 2 )
+animation = "2"
+
+[node name="Life3" type="AnimatedSprite" parent="Life"]
+frames = ExtResource( 2 )
+animation = "3"
+offset = Vector2( 55, 0 )

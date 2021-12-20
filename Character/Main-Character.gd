@@ -5,6 +5,9 @@ extends KinematicBody2D
 const max_speed = 200;
 var velocity = Vector2(0, 0);
 
+var life = 12;
+var shild = 12;
+
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	
@@ -40,3 +43,10 @@ func animation_handling():
 		$AnimatedSprite.play("up")
 	elif velocity.y < 0:
 		$AnimatedSprite.play("down")
+
+func healthHandling():
+	if life > 8:
+		for i in range(1,4):
+			var string = "$Life/Life"+str(i)+".play('4')";
+			string.execute()
+		
