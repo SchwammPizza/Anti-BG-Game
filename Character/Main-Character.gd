@@ -8,6 +8,8 @@ var velocity = Vector2(0, 0);
 var life = 12;
 var shild = 0;
 
+var points = 0;
+
 var weapon = 0;
 var unten = false;
 var untencounter = 0;
@@ -37,6 +39,11 @@ func _physics_process(delta):
 	animation_handling()
 	healthHandling()
 	weaponHandling(delta)
+	
+	$Label.text = str(points)
+	
+	if points >= 15:
+		pass
 
 func animation_handling():
 	if velocity.x > 0:

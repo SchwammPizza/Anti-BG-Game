@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var names = ["apfel", "birne", "kürbi", "tranb", "tranr"]
+var names = ["coin", "emer"]
 var drin = false
 var character;
 
@@ -14,25 +14,11 @@ func _physics_process(delta):
 	if drin:
 		print("salat")
 		if Input.is_action_just_pressed("f"):
-			if self.name == "apfel":
-				character.life += 3
-			elif self.name == "birne":
-				character.life -= 2
-			elif self.name == "kürbi":
-				character.life -= 1
-			elif self.name == "tranb":
-				character.shild += 4
-			elif self.name == "tranr":
-				character.life += 4
-			
-			if character.life > 12:
-				character.life = 12
-			if character.shild > 12:
-				character.shild = 12
+			for i in range(2):
+				if self.name == names[i]:
+					character.points += (i+1)
 			
 			queue_free()
-			
-
 
 func _on_Area2D_body_entered(body):
 	if body is MainCharacter:

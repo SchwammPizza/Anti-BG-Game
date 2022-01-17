@@ -89,3 +89,16 @@ position = Vector2( 36, 30 )
 scale = Vector2( 0.75, 0.75 )
 frames = ExtResource( 7 )
 animation = "4unten"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 900.0
+margin_top = -525.0
+margin_right = 940.0
+margin_bottom = -511.0
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 0.992157, 0.866667, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.52549, 0.0745098, 0.0745098, 1 )
+text = "15"
+__meta__ = {
+"_edit_use_anchors_": false
+}
