@@ -8,7 +8,7 @@ var velocity = Vector2(0, 0);
 var life = 12;
 var shild = 0;
 
-var weapon = 5;
+var weapon = 0;
 var unten = false;
 var untencounter = 0;
 
@@ -58,8 +58,15 @@ func healthHandling():
 	elif life > 4:
 		$Life/Life1.play("4")
 		$Life/Life2.play(str((life+3)%4+1))
+		$Life/Life3.play("0")
 	elif life > 0:
 		$Life/Life1.play(str((life+3)%4+1))
+		$Life/Life2.play("0")
+		$Life/Life3.play("0")
+	else:
+		$Life/Life1.play("0")
+		$Life/Life2.play("0")
+		$Life/Life3.play("0")
 		
 	if shild > 8:
 		$Life/Shild/Shild1.play("4")
@@ -68,8 +75,15 @@ func healthHandling():
 	elif shild > 4:
 		$Life/Shild/Shild1.play("4")
 		$Life/Shild/Shild2.play(str((shild+3)%4+1))
+		$Life/Shild/Shild3.play("0")
 	elif shild > 0:
 		$Life/Shild/Shild1.play(str((shild+3)%4+1))
+		$Life/Shild/Shild2.play("0")
+		$Life/Shild/Shild3.play("0")
+	else:
+		$Life/Shild/Shild1.play("0")
+		$Life/Shild/Shild2.play("0")
+		$Life/Shild/Shild3.play("0")
 
 func weaponHandling(step):
 	if weapon == 0:
