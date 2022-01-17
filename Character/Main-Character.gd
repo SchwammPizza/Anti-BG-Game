@@ -42,6 +42,10 @@ func _physics_process(delta):
 	
 	$Label.text = str(points)
 	
+	if life <= 0:
+		queue_free()
+		get_tree().change_scene("res://Worlds/Startbildschrim.tscn")
+	
 	if points >= 15:
 		pass
 

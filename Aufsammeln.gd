@@ -16,9 +16,9 @@ func _physics_process(delta):
 			if self.name == "apfel":
 				character.life += 3
 			elif self.name == "birne":
-				character.life -= 2
+				character.life -= 6
 			elif self.name == "kürbi":
-				character.life -= 1
+				character.life -= 4
 			elif self.name == "tranb":
 				character.shild += 4
 			elif self.name == "tranr":
