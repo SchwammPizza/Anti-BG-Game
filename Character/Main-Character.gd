@@ -10,44 +10,65 @@ var shild = 0;
 
 var points = 0;
 
+var counter = 0;
+var lifecounter = 0;
+
 var weapon = 0;
 var unten = false;
 var untencounter = 0;
 
 func _physics_process(delta):
-	velocity = move_and_slide(velocity)
+	healthHandling()
+	if life <= 0:
+		$WinLose.text = "Game Over"
+		$AnimatedSprite.play("0")
+		lifecounter += delta
+		if lifecounter > 5:
+			get_tree().change_scene("res://Worlds/Startbildschrim.tscn")
 	
-	if Input.is_action_pressed("up1"):
-		velocity.y = -max_speed;
-		velocity.x = 0;
-	
-	elif Input.is_action_pressed("down1"):
-		velocity.y = max_speed;
-		velocity.x = 0;
-	
-	elif Input.is_action_pressed("left1"):
-			velocity.x = -max_speed;
-			velocity.y = 0;
-		
-	elif Input.is_action_pressed("right1"):
-		velocity.x = max_speed;
-		velocity.y = 0;
+	elif points >= 15:
+		$WinLose.text = "Game Win"
+		lifecounter += delta
+		if lifecounter > 5:
+			get_tree().change_scene("res://Worlds/Startbildschrim.tscn")
 	
 	else:
-		velocity = Vector2(0, 0);
+		velocity = move_and_slide(velocity)
+		
+		if Input.is_action_pressed("up1"):
+			velocity.y = -max_speed;
+			velocity.x = 0;
+		
+		elif Input.is_action_pressed("down1"):
+			velocity.y = max_speed;
+			velocity.x = 0;
+		
+		elif Input.is_action_pressed("left1"):
+				velocity.x = -max_speed;
+				velocity.y = 0;
+			
+		elif Input.is_action_pressed("right1"):
+			velocity.x = max_speed;
+			velocity.y = 0;
+		
+		else:
+			velocity = Vector2(0, 0);
 
-	animation_handling()
-	healthHandling()
-	weaponHandling(delta)
+		animation_handling()
+		weaponHandling(delta)
+		
+		$Label.text = str(points)
+		
+		counter += delta
+		if counter >= 15:
+			counter = 0
+			if shild > 0:
+				shild -= 1
+			else:
+				life -= 1
+			
 	
-	$Label.text = str(points)
-	
-	if life <= 0:
-		queue_free()
-		get_tree().change_scene("res://Worlds/Startbildschrim.tscn")
-	
-	if points >= 15:
-		pass
+		
 
 func animation_handling():
 	if velocity.x > 0:
