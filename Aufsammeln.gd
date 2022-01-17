@@ -12,7 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	if drin:
-		print("salat")
 		if Input.is_action_just_pressed("f"):
 			if self.name == "apfel":
 				character.life += 3
