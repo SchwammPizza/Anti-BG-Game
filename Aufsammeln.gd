@@ -5,23 +5,23 @@ var drin = false
 var character;
 
 func _ready():
-	if self.name in names:
-		$AnimatedSprite.play(self.name)
+	if self.name.substr(0,5) in names:
+		$AnimatedSprite.play(self.name.substr(0,5))
 	else:
 		queue_free()
 
 func _physics_process(delta):
 	if drin:
 		if Input.is_action_just_pressed("f"):
-			if self.name == "apfel":
+			if self.name.substr(0,5) == "apfel":
 				character.life += 3
-			elif self.name == "birne":
+			elif self.name.substr(0,5) == "birne":
 				character.life -= 6
-			elif self.name == "kürbi":
+			elif self.name.substr(0,5) == "kürbi":
 				character.life -= 4
-			elif self.name == "tranb":
+			elif self.name.substr(0,5) == "tranb":
 				character.shild += 4
-			elif self.name == "tranr":
+			elif self.name.substr(0,5) == "tranr":
 				character.life += 4
 			
 			if character.life > 12:

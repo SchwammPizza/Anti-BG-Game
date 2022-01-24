@@ -5,8 +5,8 @@ var drin = false
 var character;
 
 func _ready():
-	if self.name in names:
-		$AnimatedSprite.play(self.name)
+	if self.name.substr(0,4) in names:
+		$AnimatedSprite.play(self.name.substr(0,4))
 	else:
 		queue_free()
 
@@ -15,7 +15,7 @@ func _physics_process(delta):
 		print("salat")
 		if Input.is_action_just_pressed("f"):
 			for i in range(2):
-				if self.name == names[i]:
+				if self.name.substr(0,4) == names[i]:
 					character.points += (i+1)
 			
 			queue_free()

@@ -60,7 +60,7 @@ func _physics_process(delta):
 		$Label.text = str(points)
 		
 		counter += delta
-		if counter >= 15:
+		if counter >= 10:
 			counter = 0
 			if shild > 0:
 				shild -= 1
